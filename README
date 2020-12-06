@@ -1,0 +1,84 @@
+WELCOME TO ABLE!
+
+able-forth implements a Forth-like programming language that targets the AbleVM
+
+GETTING STARTED
+
+able-forth only requires able to run but the img and scr tools are recommended
+for working with image and screen files (as demonstrated under "Bootstrapping")
+
+Example Session
+
+$ able forth.img
+( ready for launch?)
+ ok
+# 5 for i@ 1+ . cr next  ." LIFTOFF!" cr
+5 
+4 
+3 
+2 
+1 
+LIFTOFF!
+ ok
+bye
+$ 
+
+Bootstrapping
+
+$ img -t forth.img 1M
+$ scr -rns forth.scr | img -w forth.img 256B 128B
+$ able forth.img
+( recompile Able Forth)
+ ok
+# 259 ~ load
+ ok
+# 260 ~ load
+ ok
+( recompile Able main)
+ ok
+# 261 ~ load
+ ok
+# 262 ~ load
+ ok
+bye
+$ 
+
+GETTING INVOLVED
+
+Contact Details
+
+Find us online at ablevm.org or email us at team@ablevm.org
+
+Code of Conduct
+
+Respect each other and please don't spam
+
+LICENSE
+
+ISC-style license
+
+DETAILS
+
+Memory Map
+
+   0-128  Able main
+
+     0-1    boot
+     1-2    tasks
+     2-     code
+    32-64   recv buff
+
+  64-128  reserved for deployment
+
+ 128-192  Able Forth
+
+   128-129  task
+   129-130  eval buff
+   130-132  send buff
+   132-     code
+
+ 192-256  reserved for bootstrap
+
+ 256-     free
+
+1024 byte blocks

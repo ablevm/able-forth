@@ -61,7 +61,7 @@ DETAILS
 
 Memory Map
 
-   0-128  Able main
+   0-64  Able main
 
      0-1    boot
      1-2    tasks

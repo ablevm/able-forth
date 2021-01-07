@@ -8,7 +8,6 @@ git clone https://github.com/ablevm/libable
 git clone https://github.com/ablevm/able
 git clone https://github.com/ablevm/forth-scr
 git clone https://github.com/ablevm/forth-img
-git clone https://github.com/ablevm/able-forth
 
 (cd libable && cp config.mk.def config.mk && bmake -DCOMPAT_LINUX && sudo bmake install)
 (cd able && cp config.mk.def config.mk && bmake -DCOMPAT_LINUX && sudo bmake install)

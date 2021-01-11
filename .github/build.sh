@@ -12,8 +12,8 @@ git clone https://github.com/ablevm/able-forth
 
 (cd libable && cp config.mk.def config.mk && bmake -DCOMPAT_LINUX && sudo bmake install)
 (cd able && cp config.mk.def config.mk && bmake -DCOMPAT_LINUX && sudo bmake install)
-(cd forth-scr && make && sudo make install)
-(cd forth-img && make && sudo make install)
+(cd forth-scr && bmake && sudo bmake install)
+(cd forth-img && bmake && sudo bmake install)
 
 cd ..
 rm -rf build

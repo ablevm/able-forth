@@ -2,8 +2,20 @@
 
 set -e
 
-sudo apt-get update
-sudo apt-get install bmake clang
+case "$1" in
+	ubuntu-*)
+		export COMPAT_LINUX=
+
+		sudo apt-get update
+		sudo apt-get install bmake clang
+		;;
+	macos-*)
+		export COMPAT_MACOS=
+
+		brew update
+		brew install bmake
+		;;
+esac
 
 mkdir build
 cd build
@@ -15,13 +27,13 @@ git clone https://github.com/ablevm/forth-scr
 
 cd libable
 cp config.mk.def config.mk
-bmake -DCOMPAT_LINUX
+bmake
 sudo bmake install
 cd ..
 
 cd able
 cp config.mk.def config.mk
-bmake -DCOMPAT_LINUX
+bmake
 sudo bmake install
 cd ..
 

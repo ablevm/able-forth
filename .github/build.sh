@@ -52,4 +52,4 @@ rm -rf build
 
 img -t forth.img 1M
 scr -rns forth.scr | img -w forth.img 256B 128B
-echo '." SUCCESS" cr bye' | /usr/local/able/bin/able forth.img | grep SUCCESS
+echo '." SUCCESS" cr bye' | able forth.img | grep SUCCESS

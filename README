@@ -26,7 +26,7 @@ $
 Bootstrapping
 
 $ img -t forth.img 1M
-$ scr -rls forth.scr | img -w forth.img 256B 128B
+$ scr -r forth.scr | img -w forth.img 256B 128B
 $ able forth.img
 ( recompile Able Forth)
  ok

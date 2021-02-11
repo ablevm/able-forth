@@ -1,1088 +1,1024 @@
-   SCREEN 256
- 0 # 311 # 319 ~ thru
- 1 
- 2 
- 3 
- 4 
- 5 
- 6 
- 7 
- 8 
- 9 
-10 
-11 
-12 
-13 
-14 
-15 
-   SCREEN 257
- 0 `# 263 `# 303 `~ `thru
- 1 
- 2 
- 3 
- 4 
- 5 
- 6 
- 7 
- 8 
- 9 
-10 
-11 
-12 
-13 
-14 
-15 
-   SCREEN 258
- 0 # 308 # 310 ~ thru
- 1 
- 2 
- 3 
- 4 
- 5 
- 6 
- 7 
- 8 
- 9 
-10 
-11 
-12 
-13 
-14 
-15 
-   SCREEN 259
- 0 # 312 ~ load |
- 1 # 304 # 305 ~ thru |
- 2 # 308 ~ load |
- 3 # 306 # 307 ~ thru |
- 4 
- 5 # 196 block # 60 block # 0 cfill
- 6 # 196 block here!
- 7 # 0 ' patch >link !
- 8 # 257 ~ load |
- 9 
-10 ' [macro] ' _macro patch
-11 ' [micro] ' _micro patch
-12 ' evaluator >body # 1 task !
-13 ' `thru prune
-14 
-15 
-   SCREEN 260
- 0 # 312 ~ load |
- 1 # 304 # 305 ~ thru |
- 2 # 308 ~ load |
- 3 # 306 # 307 ~ thru |
- 4 
- 5 # 132 block # 60 block # 0 cfill
- 6 # 132 block here!
- 7 # 0 ' patch >link !
- 8 # 257 ~ load |
- 9 
-10 ' [macro] ' _macro patch
-11 ' [micro] ' _micro patch
-12 ' evaluator >body # 1 task !
-13 ' `thru prune
-14 
-15 
-   SCREEN 261
- 0 # 311 # 312 ~ thru |
- 1 
- 2 # 194 block # 62 block # 0 cfill
- 3 # 194 block here!
- 4 # 258 ~ load |
- 5 
- 6 # 0 block # 1 block # 0 cfill
- 7 # 0 block here!
- 8 ' main >body \ jump
- 9 empty
-10 
-11 
-12 
-13 
-14 
-15 
-   SCREEN 262
- 0 # 311 # 312 ~ thru  |
- 1 
- 2 # 2 block # 62 block # 0 cfill
- 3 # 2 block here!
- 4 # 258 ~ load |
- 5 
- 6 # 0 block # 1 block # 0 cfill
- 7 # 0 block here!
- 8 ' main >body \ jump
- 9 empty
-10 
-11 
-12 
-13 
-14 
-15 
-   SCREEN 263
- 0 `macro: push `( n ; - ; n)  `$ 10 `c, `;
- 1 `macro: pop `( ; n - n ;)  `$ 11 `c, `;
- 2 `macro: i@ `( ; n - n ; n)  `$ 50 `c, `;
- 3 `macro: i! `( n1 ; n2 - ; n1)  `$ 51 `c, `;
- 4 
- 5 `macro: drop `( n -)  `$ 1C `c, `;
- 6 `macro: dup `( n - n n)  `$ 1D `c, `;
- 7 `macro: over `( n1 n2 - n1 n2 n1)  `$ 1E `c, `;
- 8 `macro: swap `( n1 n2 - n2 n1)  `$ 1F `c, `;
- 9 `macro: nip `( n1 n2 - n2)  `$ 5C `c, `;
-10 `macro: tuck `( n1 n2 - n2 n1 n2)  `$ 5D `c, `;
-11 `macro: rot `( n1 n2 n3 - n2 n3 n1)  `$ 5E `c, `;
-12 `macro: -rot `( n1 n2 n3 - n3 n1 n2)  `$ 5F `c, `;
-13 
-14 
-15 
-   SCREEN 264
- 0 `macro: 2dup `( n1 n2 - n1 n2 n1 n2)  `\ over `\ over `;
- 1 `macro: 2drop `( n1 n2 -)  `\ drop `\ drop `;
- 2 
- 3 
- 4 
- 5 
- 6 
- 7 
- 8 
- 9 
-10 
-11 
-12 
-13 
-14 
-15 
-   SCREEN 265
- 0 `macro: lit `( n -) `( - n)  `$ 07 `c, `, `;
- 1 `macro: clit `( cn -) `( - cn)  `$ 27 `c, `c, `;
- 2 
- 3 
- 4 
- 5 
- 6 
- 7 
- 8 
- 9 
-10 
-11 
-12 
-13 
-14 
-15 
-   SCREEN 266
- 0 `macro: + `( n1 n2 - n3)  `$ 18 `c, `;
- 1 `macro: - `( n1 n2 - n3)  `$ 19 `c, `;
- 2 `macro: * `( n1 n2 - n3)  `$ 1A `c, `;
- 3 `macro: /mod `( n1 n2 - n3 n4)  `$ 1B `c, `;
- 4 `macro: u* `( u1 u2 - u3)  `$ 5A `c, `;
- 5 `macro: u/mod `( u1 u2 - u3 u4)  `$ 5B `c, `;
- 6 `macro: negate `( n1 - n2)  `$ 54 `c, `;
- 7 `macro: abs `( n1 - n2)  `$ 55 `c, `;
- 8 `macro: min `( n1 n2 - n3)  `$ 56 `c, `;
- 9 `macro: max `( n1 n2 - n3)  `$ 57 `c, `;
-10 
-11 `macro: / `( n1 n2 - n3)  `\ /mod `\ nip `;
-12 `macro: mod `( n1 n2 - n3)  `\ /mod `\ drop `;
-13 `macro: u/ `( u1 u2 - u3)  `\ u/mod `\ nip `;
-14 `macro: umod `( u1 u2 - u3)  `\ u/mod `\ drop `;
-15 
-   SCREEN 267
- 0 `macro: 1+ `( n1 - n2)  `# 1 `\ clit `\ + `;
- 1 `macro: 1- `( n1 - n2)  `# 1 `\ clit `\ - `;
- 2 
- 3 
- 4 
- 5 
- 6 
- 7 
- 8 
- 9 
-10 
-11 
-12 
-13 
-14 
-15 
-   SCREEN 268
- 0 `macro: lshift `( n1 n2 - n3)  `$ 12 `c, `;
- 1 `macro: rshift `( n1 n2 - n3)  `$ 58 `c, `;
- 2 `macro: ashift `( n1 n2 - n3)  `$ 13 `c, `;
- 3 
- 4 `macro: 2* `( n1 - n2)  `# 1 `\ clit `\ lshift `;
- 5 `macro: 2/ `( n1 - n2)  `# 1 `\ clit `\ ashift `;
- 6 
- 7 `macro: not `( n1 - n2)  `$ 14 `c, `;
- 8 `macro: and `( n1 n2 - n3)  `$ 15 `c, `;
- 9 `macro: or `( n1 n2 - n3)  `$ 16 `c, `;
-10 `macro: xor `( n1 n2 - n3)  `$ 17 `c, `;
-11 
-12 
-13 
-14 
-15 
-   SCREEN 269
- 0 `macro: = `( n1 n2 - ?)  `$ 52 `c, `;
- 1 `macro: < `( n1 n2 - ?)  `$ 53 `c, `;
- 2 `macro: u< `( u1 u2 - ?)  `$ 59 `c, `;
- 3 
- 4 `macro: <> `( n1 n2 - ?)  `\ = `\ not `;
- 5 `macro: > `( n1 n2 - ?)  `\ swap `\ < `;
- 6 `macro: >= `( n1 n2 - ?)  `\ < `\ not `;
- 7 `macro: <= `( n1 n2 - ?)  `\ > `\ not `;
- 8 `macro: u> `( u1 u2 - ?)  `\ swap `\ u< `;
- 9 `macro: u>= `( u1 u2 - ?)  `\ u< `\ not `;
-10 `macro: u<= `( u1 u2 - ?)  `\ u> `\ not `;
-11 
-12 
-13 
-14 
-15 
-   SCREEN 270
- 0 `macro: 0= `( n - ?)  `# 0 `\ clit `\ = `;
- 1 `macro: 0<> `( n - ?)  `# 0 `\ clit `\ <> `;
- 2 `macro: 0< `( n - ?)  `# 0 `\ clit `\ < `;
- 3 `macro: 0> `( n - ?)  `# 0 `\ clit `\ > `;
- 4 `macro: 0>= `( n - ?)  `# 0 `\ clit `\ >= `;
- 5 `macro: 0<= `( n - ?)  `# 0 `\ clit `\ <= `;
- 6 
- 7 
- 8 
- 9 
-10 
-11 
-12 
-13 
-14 
-15 
-   SCREEN 271
- 0 `macro: r! `( r -) `( a -)  `$ 48 `c, `c, `;
- 1 `macro: r@ `( r -) `( - a)  `$ 49 `c, `c, `;
- 2 
- 3 `macro: @r `( r -) `( - n)  `$ 0A `c, `c, `;
- 4 `macro: !r `( r -) `( n -)  `$ 0B `c, `c, `;
- 5 `macro: @r+ `( r -) `( - n)  `$ 0C `c, `c, `;
- 6 `macro: !r+ `( r -) `( n -)  `$ 0D `c, `c, `;
- 7 `macro: -@r `( r -) `( - n)  `$ 0E `c, `c, `;
- 8 `macro: -!r `( r -) `( n -)  `$ 0F `c, `c, `;
- 9 
-10 
-11 
-12 
-13 
-14 
-15 
-   SCREEN 272
- 0 `macro: cr! `( r -) `( a -)  `$ 28 `c, `c, `;
- 1 `macro: cr@ `( r -) `( - a)  `$ 29 `c, `c, `;
- 2 
- 3 `macro: c@r `( r -) `( - cn)  `$ 2A `c, `c, `;
- 4 `macro: c!r `( r -) `( cn -)  `$ 2B `c, `c, `;
- 5 `macro: c@r+ `( r -) `( - cn)  `$ 2C `c, `c, `;
- 6 `macro: c!r+ `( r -) `( cn -)  `$ 2D `c, `c, `;
- 7 `macro: -c@r `( r -) `( - cn)  `$ 2E `c, `c, `;
- 8 `macro: -c!r `( r -) `( cn -)  `$ 2F `c, `c, `;
- 9 
-10 
-11 
-12 
-13 
-14 
-15 
-   SCREEN 273
- 0 `macro: @ `( a - n)  `$ 4 `\ r!  `$ 4 `\ @r `;
- 1 `macro: ! `( n a -)  `$ 4 `\ r!  `$ 4 `\ !r `;
- 2 `macro: c@ `( a - cn)  `$ 4 `\ r!  `$ 4 `\ c@r `;
- 3 `macro: c! `( cn a -)  `$ 4 `\ r!  `$ 4 `\ c!r `;
- 4 
- 5 
- 6 
- 7 
- 8 
- 9 
-10 
-11 
-12 
-13 
-14 
-15 
-   SCREEN 274
- 0 `macro: wait `( p - n)  `$ 80 `c, `;
- 1 `macro: clip `( a # p - n)  `$ 81 `c, `;
- 2 `macro: recv `( p - a # n)  `$ 82 `c, `;
- 3 `macro: send `( a # l - n)  `$ 83 `c, `;
- 4 
- 5 `macro: debug `( - ~)  `$ 85 `c, `;
- 6 
- 7 
- 8 
- 9 
-10 
-11 
-12 
-13 
-14 
-15 
-   SCREEN 275
- 0 `macro: exit `( ; a - ;)  `$ 00 `c, `;
- 1 `macro: ex `( ; a1 - ; a2)  `$ 01 `c, `;
- 2 `macro: jump `( a -) `( *)  `$ 02 `c, `, `;
- 3 `macro: call `( a -) `( *)  `$ 03 `c, `, `;
- 4 
- 5 `macro: abort `( -) `( *)  `$ 0 `\ jump `;
- 6 
- 7 
- 8 
- 9 
-10 
-11 
-12 
-13 
-14 
-15 
-   SCREEN 276
- 0 `macro: begin `( - a) `( -)  `here `;
- 1 `macro: again `( a -) `( -)  `\ jump `;
- 2 
- 3 `macro: for `( - a) `( n -)  `\ 1- `\ push `\ begin `;
- 4 `macro: next `( a -) `( ; n - ; n | ;)  `$ 06 `c, `, `;
- 5 
- 6 `macro: if `( - a) `( ? -)  `$ 04 `c, `here `$ 0 `, `;
- 7 `macro: -if `( - a) `( ? -)  `$ 05 `c, `here `$ 0 `, `;
- 8 `macro: then `( a -) `( -)  `here swap ! `;
- 9 `macro: else `( a1 - a2) `( -)
-10   `$ 02 `c, `here `$ 0 `,  swap `\ then `;
-11 
-12 `macro: while `( a1 - a2 a1) `( ? -)  `\ if swap `;
-13 `macro: -while `( a1 - a2 a1) `( ? -)  `\ -if swap `;
-14 `macro: repeat `( a1 a2 -) `( -)  `\ again `\ then `;
-15 
-   SCREEN 277
- 0 `macro: here! `( a -)  `$ 2 `\ r! `;
- 1 `macro: here@ `( - a)  `$ 2 `\ r@ `;
- 2 `macro: here `( - a)  `\ here@ `;
- 3 
- 4 `macro: , `( n -)  `$ 2 `\ !r+ `;
- 5 `macro: c, `( cn -)  `$ 2 `\ c!r+ `;
- 6 
- 7 `macro: allot `( # -)  `$ 2 `\ r@ `\ +  `$ 2 `\ r! `;
- 8 
- 9 `: naligned `( u u - u)  1-  dup not  -rot +  and `;
-10 `: aligned `( u - u)  `# 4 naligned `;
-11 `: align `( -)  here@ aligned here! `;
-12 
-13 
-14 
-15 
-   SCREEN 278
- 0 `macro: t! `( a -)  `$ 1 `\ r! `;
- 1 `macro: t@ `( - a)  `$ 1 `\ r@ `;
- 2 
- 3 `macro: @t `( a - n)  `$ 0 `\ r!  `$ 0 `\ @r `;
- 4 `macro: !t `( n a -)  `$ 0 `\ r!  `$ 0 `\ !r `;
- 5 
- 6 
- 7 
- 8 
- 9 
-10 
-11 
-12 
-13 
-14 
-15 
-   SCREEN 279
- 0 `macro: here' `( - a)  `# 0 `\ clit `;
- 1 `macro: last `( - a)  `# 4 `\ clit `;
- 2 `macro: text `( - a)  `# 8 `\ clit `;
- 3 `macro: text# `( - a)  `# 12 `\ clit `;
- 4 
- 5 
- 6 
- 7 
- 8 
- 9 
-10 
-11 
-12 
-13 
-14 
-15 
-   SCREEN 280
- 0 `macro: cells `( u1 - u2)  `# 2 `\ clit `\ lshift `;
- 1 `macro: cells+ `( u1 u2 - u3)  `\ cells `\ + `;
- 2 `macro: cells- `( u1 u2 - u3)  `\ cells `\ - `;
- 3 
- 4 `macro: block `( u1 - u2)  `# 10 `\ clit `\ lshift `;
- 5 
- 6 
- 7 
- 8 
- 9 
-10 
-11 
-12 
-13 
-14 
-15 
-   SCREEN 281
- 0 `macro: eval-buff `( - a)  `# 129 block `\ lit `;
- 1 `macro: send-buff `( - a)  `# 131 block `\ lit `;
- 2 
- 3 
- 4 
- 5 
- 6 
- 7 
- 8 
- 9 
-10 
-11 
-12 
-13 
-14 
-15 
-   SCREEN 282
- 0 `: <? `( -)  send-buff `[ `$ 6 `] r! `;
- 1 `: ?> `( - a #)  send-buff  `[ `$ 6 `] r@ over - `;
- 2 `: ?c, `( cn -)  `[ `$ 6 `] c!r+ `;
- 3 
- 4 `: emit `( c - ~)
- 5   <? `# 0 ?c,  ?c, ?>
- 6   begin 2dup `# 0 send 0< while repeat
- 7   2drop `;
- 8 
- 9 `: cr `( - ~)  `$ A emit `;
-10 `: space `( - ~)  `$ 20 emit `;
-11 
-12 `: type `( a # - ~)
-13   dup 0<= if 2drop exit then
-14   swap `[ `$ 4 `] r!  for `[ `$ 4 `] c@r+ emit next `;
-15 
-   SCREEN 283
- 0 `macro: base! `( u -)  `$ 8 `\ r! `;
- 1 `macro: base@ `( - u)  `$ 8 `\ r@ `;
- 2 
- 3 
- 4 
- 5 
- 6 
- 7 
- 8 
- 9 
-10 
-11 
-12 
-13 
-14 
-15 
-   SCREEN 284
- 0 `: digit `( u - c)  dup `# 9 >  `# 7 and +  `# 48 + `;
- 1 
- 2 `: <?# `( -)  send-buff `[ `$ 6 `] r! `;
- 3 `: #?> `( - a #)  drop  `[ `$ 6 `] r@  send-buff over - `;
- 4 `: hold `( c -)  `[ `$ 6 `] -c!r `;
- 5 `: ?# `( u - u)  base@ u/mod  swap digit hold `;
- 6 `: ?#s `( u - 0)  begin ?#  dup 0= -while repeat `;
- 7 `: sign `( n -)  0< if `$ 2D hold then `;
- 8 
- 9 
-10 
-11 
-12 
-13 
-14 
-15 
-   SCREEN 285
- 0 `: (.) `( n u - ~)
- 1   base!  dup abs  <?# `$ 20 hold  ?#s  swap sign #?> type `;
- 2 `: . `( n - ~)  `# 10 (.) `;
- 3 `: .x `( n - ~)  `# 16 (.) `;
- 4 `: .b `( n - ~)  `# 2 (.) `;
- 5 `: .o `( n - ~)  `# 8 (.) `;
- 6 
- 7 `: (u.) `( u u - ~)
- 8   base!  <?# `$ 20 hold  ?#s #?> type `;
- 9 `: u. `( u - ~)  `# 10 (u.) `;
-10 `: u.x `( u - ~)  `# 16 (u.) `;
-11 `: u.b `( u - ~)  `# 2 (u.) `;
-12 `: u.o `( u - ~)  `# 8 (u.) `;
-13 
-14 
-15 
-   SCREEN 286
- 0 `: trim `( a # - a #)
- 1   dup 0<= if exit then
- 2   swap `[ `$ 4 `] r!  for
- 3     `[ `$ 4 `] c@r+ `# 33 < -if
- 4       `[ `$ 4 `] r@ 1-  pop 1+
- 5       exit
- 6     then
- 7   next
- 8   `[ `$ 4 `] r@ 1-  `# 0 `;
- 9 
-10 
-11 
-12 
-13 
-14 
-15 
-   SCREEN 287
- 0 `: scan `( a # c - a #)
- 1   `[ `$ 6 `] cr!  dup 0<= if exit then
- 2   over `[ `$ 4 `] r!  dup for
- 3     `[ `$ 4 `] c@r+  `[ `$ 6 `] cr@ = if
- 4       pop 1+ -
- 5       exit
- 6     then
- 7   next `;
- 8 
- 9 `: parse `( c ~ - a #)
-10   text @t text# @t
-11   rot scan  2dup + 1+  dup text @t -
-12   text# @t swap -
-13   text# !t text !t `;
-14 
-15 
-   SCREEN 288
- 0 `: s, `( a # -)
- 1   dup `c,  swap `[ `$ 4 `] r!  dup 0<= if drop exit then
- 2   for `[ `$ 4 `] c@r+ `c, next `;
- 3 `: s@ `( a - a #)
- 4   `[ `$ 4 `] r!  `[ `$ 4 `] c@r+  `[ `$ 4 `] r@  swap `;
- 5 
- 6 
- 7 
- 8 
- 9 
-10 
-11 
-12 
-13 
-14 
-15 
-   SCREEN 289
- 0 `: slit `( ; a1 - a2 # ; a3)
- 1   i@ `[ `$ 4 `] r!
- 2   `[ `$ 4 `] c@r+  `[ `$ 4 `] r@  swap
- 3   2dup + i! `;
- 4 
- 5 `macro: " `( ~ -) `( - a #)
- 6   `# 34 parse  dup 0< if drop `# 0 then  `\ slit  s, `;
- 7 
- 8 `macro: ." `( ~ -) `( - ~)  `\ " `\ type `;
- 9 
-10 `macro: abort" `( ~ -) `( - ~ *)
-11   `\ ." `\ cr `\ abort `;
-12 
-13 
-14 
-15 
-   SCREEN 290
- 0 `: (word) `( ~ - a #)
- 1   text @t text# @t  trim  text# !t text !t
- 2   `$ 20 parse `;
- 3 `: word `( ~ - a # | ~ *)
- 4   (word)  dup 0<= if 2drop  abort"  ?" then `;
- 5 
- 6 
- 7 
- 8 
- 9 
-10 
-11 
-12 
-13 
-14 
-15 
-   SCREEN 291
- 0 `: -digit `( c - n)
- 1   `# 48 -  dup `# 9 > if `# 7 -  dup `# 10 <  or then `;
- 2 
- 3 `: number `( a # - a # n | ~ *)
- 4   dup 0<= if 2drop abort"  ?" then
- 5   2dup  swap `[ `$ 6 `] r!
- 6   `[ `$ 6 `] c@r `# 45 =  push
- 7   `[ `$ 6 `] r@ i@ -  `[ `$ 6 `] r!
- 8   i@ +  `# 0  swap for
- 9     base@ *  `[ `$ 6 `] c@r+ -digit
-10     dup base@ u>= if
-11       2drop  pop drop  type abort"  ?"
-12     then  +
-13   next
-14   pop if negate then `;
-15 
-   SCREEN 292
- 0 `: (#) `( u ~ - | ~ *) `( - n)
- 1   base!  word number `\ lit  2drop `;
- 2 `macro: # `( ~ - | ~ *) `( - n)  `# 10 (#) `;
- 3 `macro: $ `( ~ - | ~ *) `( - n)  `# 16 (#) `;
- 4 `macro: % `( ~ - | ~ *) `( - n)  `# 2 (#) `;
- 5 `macro: & `( ~ - | ~ *) `( - n)  `# 8 (#) `;
- 6 
- 7 `macro: char `( ~ - | ~ *) `( - c)
- 8   text# @t 0<= if abort"  ?" then
- 9   text @t c@ `\ clit
-10   text @t 1+ text !t
-11   text# @t 1- text# !t `;
-12 
-13 `macro: ( `( ~ -) `( -)  `# 41 parse 2drop `;
-14 
-15 
-   SCREEN 293
- 0 `: same `( a # a # - ?)
- 1   push  `[ `$ 4 `] r!  swap `[ `$ 6 `] r!
- 2   i@ =  dup -if pop drop exit then
- 3   pop for
- 4     `[ `$ 4 `] c@r+ `[ `$ 6 `] c@r+ =  and
- 5     dup i@ and i!
- 6   next `;
- 7 
- 8 
- 9 
-10 
-11 
-12 
-13 
-14 
-15 
-   SCREEN 294
- 0 `macro: >data `( h - a)  `# 2 `\ clit `\ cells- `;
- 1 `macro: >code `( h - a)  `# 1 `\ clit `\ cells- `;
- 2 `macro: >link `( h - a)  `;
- 3 `macro: >name `( h - a)  `# 1 `\ clit `\ cells+ `;
- 4 
- 5 `macro: >body `( h - a)  `\ >data `\ @ `;
- 6 
- 7 
- 8 
- 9 
-10 
-11 
-12 
-13 
-14 
-15 
-   SCREEN 295
- 0 `: find `( a # - a # h | a # 0)
- 1   last @t push
- 2   begin i@ 0= -while
- 3     2dup  i@ >name s@  same if pop exit then
- 4     i@ >link @ i!
- 5   repeat pop `;
- 6 
- 7 
- 8 
- 9 
-10 
-11 
-12 
-13 
-14 
-15 
-   SCREEN 296
- 0 `: compile `( ~ - * | ~ *)
- 1   begin (word)  dup 0> while
- 2     find  dup if
- 3       nip nip  dup >code @ push ex
- 4     else
- 5       drop  type abort"  ?"
- 6     then
- 7   repeat 2drop `;
- 8 
- 9 
-10 
-11 
-12 
-13 
-14 
-15 
-   SCREEN 297
- 0 `macro: [ `( -)
- 1   here@ here' !t  eval-buff here! `;
- 2 `macro: ] `( - *) `( *)
- 3   `\ exit  here' @t here!  eval-buff push `;
- 4 `macro: | `( - *) `( *)  `\ ] `\ [ `;
- 5 
- 6 `: evaluate `( a # ~ - * | ~ *)
- 7   text @t push  text# @t push
- 8   text# !t text !t  `\ [ compile `\ ]
- 9   pop text# !t  pop text !t `;
-10 
-11 
-12 
-13 
-14 
-15 
-   SCREEN 298
- 0 `: evaluator `( a # ~ - ~ *)
- 1   dup # 1 = if 2drop exit then
- 2   `# 128 block t!  here' @t here!
- 3   text# !t text !t  `\ [ compile `\ ]
- 4   here@ here' !t
- 5   ."  ok" cr `;
- 6 
- 7 
- 8 
- 9 
-10 
-11 
-12 
-13 
-14 
-15 
-   SCREEN 299
- 0 `: header `( a # -)
- 1   `here last @t `, last !t  s,  `here here' !t `;
- 2 `: define `( h ~ - | ~ *)
- 3   `here push `# 0 `,  >body `,
- 4   word header
- 5   `here pop ! `;
- 6 
- 7 `: [macro] `( h - *) `( *)  >body push `;
- 8 `macro: macro: `( ~ - | ~ *) `( *)
- 9   `\ ]  `' [macro] define `;
-10 `: [micro] `( h -) `( *)  >body `\ call `;
-11 `macro: : `( ~ - | ~ *) `( *)
-12   `\ ]  `' [micro] define `;
-13 `macro: ; `( ; a - ;)  `\ exit  `\ [ `;
-14 
-15 
-   SCREEN 300
- 0 `: (') `( ~ - h | ~ *)
- 1   word find  dup if
- 2     nip nip
- 3   else
- 4     drop  type abort"  ?"
- 5   then `;
- 6 
- 7 `macro: ' `( ~ - | ~ *) `( - h)  (') `\ lit `;
- 8 
- 9 `macro: \ `( ~ - | ~ *) `( *)
-10   `\ '  `\ dup `\ >code `\ @ `\ push `\ ex `;
-11 
-12 `macro: ~ `( ~ - | ~ *) `( *)  (')  >body `\ jump `;
-13 
-14 
-15 
-   SCREEN 301
- 0 `: load `( u - *)
- 1   block `# 1024 evaluate `;
- 2 `: thru `( u u - *)
- 3   over - 1+ for
- 4     dup load 1+
- 5   next drop `;
- 6 
- 7 
- 8 
- 9 
-10 
-11 
-12 
-13 
-14 
-15 
-   SCREEN 302
- 0 `: bye `( -)
- 1   <? `# 1 ?c, ?>
- 2   begin 2dup `# 0 send 0< while repeat
- 3   2drop `;
- 4 
- 5 
- 6 
- 7 
- 8 
- 9 
-10 
-11 
-12 
-13 
-14 
-15 
-   SCREEN 303
- 0 `: words `( - ~)
- 1   last @t push
- 2   begin i@ 0= -while
- 3     i@ >name s@ type  space
- 4     i@ >link @ i!
- 5   repeat cr  pop drop `;
- 6 
- 7 
- 8 
- 9 
-10 
-11 
-12 
-13 
-14 
-15 
-   SCREEN 304
- 0 : patch ( h h -)
- 1   last @t push
- 2   begin i@ 0= -while
- 3     dup >code @  i@ >code @ = if
- 4       over >body  i@ >code !
- 5     then
- 6     i@ >link @ i!
- 7   repeat 2drop  pop drop ;
- 8 
- 9 macro: _macro ;
-10 : _micro ;
-11 
-12 
-13 
-14 
-15 
-   SCREEN 305
- 0 : prune ( h -)
- 1   last @t push
- 2   begin i@ 0= -while
- 3     dup  i@ >link @ = if
- 4       # 0 i@ >link !
- 5       drop  pop drop exit
- 6     then
- 7     i@ >link @ i!
- 8   repeat drop  pop drop ;
- 9 
-10 
-11 
-12 
-13 
-14 
-15 
-   SCREEN 306
- 0 macro: `( ( ~ -) ( -)  \ ( ;
- 1 
- 2 macro: `macro: ( ~ - | ~ *) ( *)  \ macro: ;
- 3 macro: `: ( ~ - | ~ *) ( *)  \ : ;
- 4 macro: `; ( ; a - ;)  \ ; ;
- 5 
- 6 macro: `[ ( -)  \ [ ;
- 7 macro: `] ( - *) ( *)  \ ] ;
- 8 macro: `| ( - *) ( *)  \ | ;
- 9 macro: `~ ( ~ - | ~ *) ( *)  \ ~ ;
-10 
-11 macro: `' ( ~ - | ~ *) ( - h)  \ ' ;
-12 macro: `\ ( ~ - | ~ *) ( *)  \ \ ;
-13 
-14 
-15 
-   SCREEN 307
- 0 macro: `# ( ~ - | ~ *) ( - n)  \ # ;
- 1 macro: `$ ( ~ - | ~ *) ( - n)  \ $ ;
- 2 
- 3 macro: `here ( - a)  \ here ;
- 4 macro: `, ( n -)  \ , ;
- 5 macro: `c, ( cn -)  \ c, ;
- 6 
- 7 : `load ( u - *)  load ;
- 8 : `thru ( u u - *)  thru ;
- 9 
-10 
-11 
-12 
-13 
-14 
-15 
-   SCREEN 308
- 0 macro: tasks ( - a)  # 1 block \ lit ;
- 1 : task ( n - a)  1+ cells  tasks + ;
- 2 
- 3 
- 4 
- 5 
- 6 
- 7 
- 8 
- 9 
-10 
-11 
-12 
-13 
-14 
-15 
-   SCREEN 309
- 0 : wait' ( -)  # 0 wait drop ;
- 1 : clip' ( a # -)
- 2   begin 2dup # 0 clip 0< while repeat
- 3   2drop ;
- 4 : recv' ( - a #)
- 5   begin # 0 recv 0< while 2drop  wait' repeat ;
- 6 : mark ( a # - n)
- 7   over # 1 cells- @  dup # -1 = if drop  over @ then ;
- 8 
- 9 
-10 
-11 
-12 
-13 
-14 
-15 
-   SCREEN 310
- 0 : main ( - *)
- 1   begin
- 2     # 32 block dup clip'  recv'
- 3     mark task @  dup if
- 4       push ex
- 5     else
- 6       drop  2drop
- 7     then
- 8   again ;
- 9 
-10 
-11 
-12 
-13 
-14 
-15 
-   SCREEN 311
- 0 last @t here@
- 1 
- 2 macro: empty ( -)
- 3   lit \ lit \ here!
- 4   lit \ lit \ last \ !t ;
- 5 
- 6 
- 7 
- 8 
- 9 
-10 
-11 
-12 
-13 
-14 
-15 
-   SCREEN 312
- 0 : cfill ( a # cn -)
- 1   -rot  swap [ $ 4 ] r!  for
- 2     dup [ $ 4 ] c!r+
- 3   next drop ;
- 4 
- 5 : cmove ( a1 # a2 -)
- 6   [ $ 6 ] r!  swap [ $ 4 ] r!  for
- 7     [ $ 4 ] c@r+  [ $ 6 ] c!r+
- 8   next ;
- 9 
-10 
-11 
-12 
-13 
-14 
-15 
-   SCREEN 313
- 0 : execute ( h - *)  >body push ;
- 1 
- 2 
- 3 
- 4 
- 5 
- 6 
- 7 
- 8 
- 9 
-10 
-11 
-12 
-13 
-14 
-15 
-   SCREEN 314
- 0 : [create] ( h -) ( - a)  >body \ lit ;
- 1 : create ( ~ - | ~ *) ( - a)  # 0 ,  ' [create] define ;
- 2 
- 3 macro: >does ( h - a)  # 3 \ clit \ cells- ;
- 4 
- 5 : [does] ( h -) ( *)
- 6   dup >body \ lit  >does @ \ call ;
- 7 : does ( ; a - ;)
- 8   ' [does] >body  last @t >code !
- 9   pop  last @t >does ! ;
-10 
-11 
-12 
-13 
-14 
-15 
-   SCREEN 315
- 0 macro: variable ( ~ - | ~ *) ( - a)
- 1   \ ]  create # 0 ,  \ [ ;
- 2 macro: constant ( n ~ - | ~ *) ( - n)
- 3   \ ]  create ,  \ [  does @ ;
- 4 
- 5 
- 6 
- 7 
- 8 
- 9 
-10 
-11 
-12 
-13 
-14 
-15 
-   SCREEN 316
- 0 : [alias] ( h - *) ( *)  >data @ dup >code @ push ;
- 1 macro: alias ( h ~ - | ~ *) ( *)
- 2   \ ]  ,  ' [alias] >data @ ,  word header  \ [ ;
- 3 
- 4 
- 5 
- 6 
- 7 
- 8 
- 9 
-10 
-11 
-12 
-13 
-14 
-15 
-   SCREEN 317
- 0 : [defer] ( h -) ( *)  >data \ lit  \ @ \ push \ ex ;
- 1 macro: defer: ( ~ - | ~ *) ( *)  \ ]  ' [defer] define ;
- 2 : defer! ( h h -)  swap >data @  swap >data ! ;
- 3 : defer@ ( h - h)  >data @ ;
- 4 macro: is ( h ~ - | ~ *)
- 5   \ ]  (') defer!  \ [ ;
- 6 
- 7 
- 8 
- 9 
-10 
-11 
-12 
-13 
-14 
-15 
-   SCREEN 318
- 0 : internal ( - h)  last @t ;
- 1 : external ( - h)  last @t ;
- 2 : module ( h h - | ~ *)
- 3   last @t push
- 4   begin i@ 0= -while
- 5     dup  i@ >link @ = if
- 6       drop  pop >link !
- 7       exit
- 8     then
- 9     i@ >link @ i!
-10   repeat
-11   2drop  pop drop  abort"  ?" ;
-12 
-13 
-14 
-15 
-   SCREEN 319
- 0 : z.h ( cu - ~)
- 1   # 16 base!  <?# $ 20 hold  ?# ?# #?> type ;
- 2 
- 3 : dump ( a # - ~)
- 4   swap [ $ A ] r!  for
- 5     [ $ A ] c@r+ z.h
- 6   next cr ;
- 7 
- 8 : more ( - a)  [ $ A ] r@ ;
- 9 
-10 
-11 
-12 
-13 
-14 
-15 
+# 311 # 319 ~ thru
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+`# 263 `# 303 `~ `thru
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# 308 # 310 ~ thru
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# 312 ~ load |
+# 304 # 305 ~ thru |
+# 308 ~ load |
+# 306 # 307 ~ thru |
+
+# 196 block # 60 block # 0 cfill
+# 196 block here!
+# 0 ' patch >link !
+# 257 ~ load |
+
+' [macro] ' _macro patch
+' [micro] ' _micro patch
+' evaluator >body # 1 task !
+' `thru prune
+
+
+# 312 ~ load |
+# 304 # 305 ~ thru |
+# 308 ~ load |
+# 306 # 307 ~ thru |
+
+# 132 block # 60 block # 0 cfill
+# 132 block here!
+# 0 ' patch >link !
+# 257 ~ load |
+
+' [macro] ' _macro patch
+' [micro] ' _micro patch
+' evaluator >body # 1 task !
+' `thru prune
+
+
+# 311 # 312 ~ thru |
+
+# 194 block # 62 block # 0 cfill
+# 194 block here!
+# 258 ~ load |
+
+# 0 block # 1 block # 0 cfill
+# 0 block here!
+' main >body \ jump
+empty
+
+
+
+
+
+
+# 311 # 312 ~ thru  |
+
+# 2 block # 62 block # 0 cfill
+# 2 block here!
+# 258 ~ load |
+
+# 0 block # 1 block # 0 cfill
+# 0 block here!
+' main >body \ jump
+empty
+
+
+
+
+
+
+`macro: push `( n ; - ; n)  `$ 10 `c, `;
+`macro: pop `( ; n - n ;)  `$ 11 `c, `;
+`macro: i@ `( ; n - n ; n)  `$ 50 `c, `;
+`macro: i! `( n1 ; n2 - ; n1)  `$ 51 `c, `;
+
+`macro: drop `( n -)  `$ 1C `c, `;
+`macro: dup `( n - n n)  `$ 1D `c, `;
+`macro: over `( n1 n2 - n1 n2 n1)  `$ 1E `c, `;
+`macro: swap `( n1 n2 - n2 n1)  `$ 1F `c, `;
+`macro: nip `( n1 n2 - n2)  `$ 5C `c, `;
+`macro: tuck `( n1 n2 - n2 n1 n2)  `$ 5D `c, `;
+`macro: rot `( n1 n2 n3 - n2 n3 n1)  `$ 5E `c, `;
+`macro: -rot `( n1 n2 n3 - n3 n1 n2)  `$ 5F `c, `;
+
+
+
+`macro: 2dup `( n1 n2 - n1 n2 n1 n2)  `\ over `\ over `;
+`macro: 2drop `( n1 n2 -)  `\ drop `\ drop `;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+`macro: lit `( n -) `( - n)  `$ 07 `c, `, `;
+`macro: clit `( cn -) `( - cn)  `$ 27 `c, `c, `;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+`macro: + `( n1 n2 - n3)  `$ 18 `c, `;
+`macro: - `( n1 n2 - n3)  `$ 19 `c, `;
+`macro: * `( n1 n2 - n3)  `$ 1A `c, `;
+`macro: /mod `( n1 n2 - n3 n4)  `$ 1B `c, `;
+`macro: u* `( u1 u2 - u3)  `$ 5A `c, `;
+`macro: u/mod `( u1 u2 - u3 u4)  `$ 5B `c, `;
+`macro: negate `( n1 - n2)  `$ 54 `c, `;
+`macro: abs `( n1 - n2)  `$ 55 `c, `;
+`macro: min `( n1 n2 - n3)  `$ 56 `c, `;
+`macro: max `( n1 n2 - n3)  `$ 57 `c, `;
+
+`macro: / `( n1 n2 - n3)  `\ /mod `\ nip `;
+`macro: mod `( n1 n2 - n3)  `\ /mod `\ drop `;
+`macro: u/ `( u1 u2 - u3)  `\ u/mod `\ nip `;
+`macro: umod `( u1 u2 - u3)  `\ u/mod `\ drop `;
+
+`macro: 1+ `( n1 - n2)  `# 1 `\ clit `\ + `;
+`macro: 1- `( n1 - n2)  `# 1 `\ clit `\ - `;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+`macro: lshift `( n1 n2 - n3)  `$ 12 `c, `;
+`macro: rshift `( n1 n2 - n3)  `$ 58 `c, `;
+`macro: ashift `( n1 n2 - n3)  `$ 13 `c, `;
+
+`macro: 2* `( n1 - n2)  `# 1 `\ clit `\ lshift `;
+`macro: 2/ `( n1 - n2)  `# 1 `\ clit `\ ashift `;
+
+`macro: not `( n1 - n2)  `$ 14 `c, `;
+`macro: and `( n1 n2 - n3)  `$ 15 `c, `;
+`macro: or `( n1 n2 - n3)  `$ 16 `c, `;
+`macro: xor `( n1 n2 - n3)  `$ 17 `c, `;
+
+
+
+
+
+`macro: = `( n1 n2 - ?)  `$ 52 `c, `;
+`macro: < `( n1 n2 - ?)  `$ 53 `c, `;
+`macro: u< `( u1 u2 - ?)  `$ 59 `c, `;
+
+`macro: <> `( n1 n2 - ?)  `\ = `\ not `;
+`macro: > `( n1 n2 - ?)  `\ swap `\ < `;
+`macro: >= `( n1 n2 - ?)  `\ < `\ not `;
+`macro: <= `( n1 n2 - ?)  `\ > `\ not `;
+`macro: u> `( u1 u2 - ?)  `\ swap `\ u< `;
+`macro: u>= `( u1 u2 - ?)  `\ u< `\ not `;
+`macro: u<= `( u1 u2 - ?)  `\ u> `\ not `;
+
+
+
+
+
+`macro: 0= `( n - ?)  `# 0 `\ clit `\ = `;
+`macro: 0<> `( n - ?)  `# 0 `\ clit `\ <> `;
+`macro: 0< `( n - ?)  `# 0 `\ clit `\ < `;
+`macro: 0> `( n - ?)  `# 0 `\ clit `\ > `;
+`macro: 0>= `( n - ?)  `# 0 `\ clit `\ >= `;
+`macro: 0<= `( n - ?)  `# 0 `\ clit `\ <= `;
+
+
+
+
+
+
+
+
+
+
+`macro: r! `( r -) `( a -)  `$ 48 `c, `c, `;
+`macro: r@ `( r -) `( - a)  `$ 49 `c, `c, `;
+
+`macro: @r `( r -) `( - n)  `$ 0A `c, `c, `;
+`macro: !r `( r -) `( n -)  `$ 0B `c, `c, `;
+`macro: @r+ `( r -) `( - n)  `$ 0C `c, `c, `;
+`macro: !r+ `( r -) `( n -)  `$ 0D `c, `c, `;
+`macro: -@r `( r -) `( - n)  `$ 0E `c, `c, `;
+`macro: -!r `( r -) `( n -)  `$ 0F `c, `c, `;
+
+
+
+
+
+
+
+`macro: cr! `( r -) `( a -)  `$ 28 `c, `c, `;
+`macro: cr@ `( r -) `( - a)  `$ 29 `c, `c, `;
+
+`macro: c@r `( r -) `( - cn)  `$ 2A `c, `c, `;
+`macro: c!r `( r -) `( cn -)  `$ 2B `c, `c, `;
+`macro: c@r+ `( r -) `( - cn)  `$ 2C `c, `c, `;
+`macro: c!r+ `( r -) `( cn -)  `$ 2D `c, `c, `;
+`macro: -c@r `( r -) `( - cn)  `$ 2E `c, `c, `;
+`macro: -c!r `( r -) `( cn -)  `$ 2F `c, `c, `;
+
+
+
+
+
+
+
+`macro: @ `( a - n)  `$ 4 `\ r!  `$ 4 `\ @r `;
+`macro: ! `( n a -)  `$ 4 `\ r!  `$ 4 `\ !r `;
+`macro: c@ `( a - cn)  `$ 4 `\ r!  `$ 4 `\ c@r `;
+`macro: c! `( cn a -)  `$ 4 `\ r!  `$ 4 `\ c!r `;
+
+
+
+
+
+
+
+
+
+
+
+
+`macro: wait `( p - n)  `$ 80 `c, `;
+`macro: clip `( a # p - n)  `$ 81 `c, `;
+`macro: recv `( p - a # n)  `$ 82 `c, `;
+`macro: send `( a # l - n)  `$ 83 `c, `;
+
+`macro: debug `( - ~)  `$ 85 `c, `;
+
+
+
+
+
+
+
+
+
+
+`macro: exit `( ; a - ;)  `$ 00 `c, `;
+`macro: ex `( ; a1 - ; a2)  `$ 01 `c, `;
+`macro: jump `( a -) `( *)  `$ 02 `c, `, `;
+`macro: call `( a -) `( *)  `$ 03 `c, `, `;
+
+`macro: abort `( -) `( *)  `$ 0 `\ jump `;
+
+
+
+
+
+
+
+
+
+
+`macro: begin `( - a) `( -)  `here `;
+`macro: again `( a -) `( -)  `\ jump `;
+
+`macro: for `( - a) `( n -)  `\ 1- `\ push `\ begin `;
+`macro: next `( a -) `( ; n - ; n | ;)  `$ 06 `c, `, `;
+
+`macro: if `( - a) `( ? -)  `$ 04 `c, `here `$ 0 `, `;
+`macro: -if `( - a) `( ? -)  `$ 05 `c, `here `$ 0 `, `;
+`macro: then `( a -) `( -)  `here swap ! `;
+`macro: else `( a1 - a2) `( -)
+  `$ 02 `c, `here `$ 0 `,  swap `\ then `;
+
+`macro: while `( a1 - a2 a1) `( ? -)  `\ if swap `;
+`macro: -while `( a1 - a2 a1) `( ? -)  `\ -if swap `;
+`macro: repeat `( a1 a2 -) `( -)  `\ again `\ then `;
+
+`macro: here! `( a -)  `$ 2 `\ r! `;
+`macro: here@ `( - a)  `$ 2 `\ r@ `;
+`macro: here `( - a)  `\ here@ `;
+
+`macro: , `( n -)  `$ 2 `\ !r+ `;
+`macro: c, `( cn -)  `$ 2 `\ c!r+ `;
+
+`macro: allot `( # -)  `$ 2 `\ r@ `\ +  `$ 2 `\ r! `;
+
+`: naligned `( u u - u)  1-  dup not  -rot +  and `;
+`: aligned `( u - u)  `# 4 naligned `;
+`: align `( -)  here@ aligned here! `;
+
+
+
+
+`macro: t! `( a -)  `$ 1 `\ r! `;
+`macro: t@ `( - a)  `$ 1 `\ r@ `;
+
+`macro: @t `( a - n)  `$ 0 `\ r!  `$ 0 `\ @r `;
+`macro: !t `( n a -)  `$ 0 `\ r!  `$ 0 `\ !r `;
+
+
+
+
+
+
+
+
+
+
+
+`macro: here' `( - a)  `# 0 `\ clit `;
+`macro: last `( - a)  `# 4 `\ clit `;
+`macro: text `( - a)  `# 8 `\ clit `;
+`macro: text# `( - a)  `# 12 `\ clit `;
+
+
+
+
+
+
+
+
+
+
+
+
+`macro: cells `( u1 - u2)  `# 2 `\ clit `\ lshift `;
+`macro: cells+ `( u1 u2 - u3)  `\ cells `\ + `;
+`macro: cells- `( u1 u2 - u3)  `\ cells `\ - `;
+
+`macro: block `( u1 - u2)  `# 10 `\ clit `\ lshift `;
+
+
+
+
+
+
+
+
+
+
+
+`macro: eval-buff `( - a)  `# 129 block `\ lit `;
+`macro: send-buff `( - a)  `# 131 block `\ lit `;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+`: <? `( -)  send-buff `[ `$ 6 `] r! `;
+`: ?> `( - a #)  send-buff  `[ `$ 6 `] r@ over - `;
+`: ?c, `( cn -)  `[ `$ 6 `] c!r+ `;
+
+`: emit `( c - ~)
+  <? `# 0 ?c,  ?c, ?>
+  begin 2dup `# 0 send 0< while repeat
+  2drop `;
+
+`: cr `( - ~)  `$ A emit `;
+`: space `( - ~)  `$ 20 emit `;
+
+`: type `( a # - ~)
+  dup 0<= if 2drop exit then
+  swap `[ `$ 4 `] r!  for `[ `$ 4 `] c@r+ emit next `;
+
+`macro: base! `( u -)  `$ 8 `\ r! `;
+`macro: base@ `( - u)  `$ 8 `\ r@ `;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+`: digit `( u - c)  dup `# 9 >  `# 7 and +  `# 48 + `;
+
+`: <?# `( -)  send-buff `[ `$ 6 `] r! `;
+`: #?> `( - a #)  drop  `[ `$ 6 `] r@  send-buff over - `;
+`: hold `( c -)  `[ `$ 6 `] -c!r `;
+`: ?# `( u - u)  base@ u/mod  swap digit hold `;
+`: ?#s `( u - 0)  begin ?#  dup 0= -while repeat `;
+`: sign `( n -)  0< if `$ 2D hold then `;
+
+
+
+
+
+
+
+
+`: (.) `( n u - ~)
+  base!  dup abs  <?# `$ 20 hold  ?#s  swap sign #?> type `;
+`: . `( n - ~)  `# 10 (.) `;
+`: .x `( n - ~)  `# 16 (.) `;
+`: .b `( n - ~)  `# 2 (.) `;
+`: .o `( n - ~)  `# 8 (.) `;
+
+`: (u.) `( u u - ~)
+  base!  <?# `$ 20 hold  ?#s #?> type `;
+`: u. `( u - ~)  `# 10 (u.) `;
+`: u.x `( u - ~)  `# 16 (u.) `;
+`: u.b `( u - ~)  `# 2 (u.) `;
+`: u.o `( u - ~)  `# 8 (u.) `;
+
+
+
+`: trim `( a # - a #)
+  dup 0<= if exit then
+  swap `[ `$ 4 `] r!  for
+    `[ `$ 4 `] c@r+ `# 33 < -if
+      `[ `$ 4 `] r@ 1-  pop 1+
+      exit
+    then
+  next
+  `[ `$ 4 `] r@ 1-  `# 0 `;
+
+
+
+
+
+
+
+`: scan `( a # c - a #)
+  `[ `$ 6 `] cr!  dup 0<= if exit then
+  over `[ `$ 4 `] r!  dup for
+    `[ `$ 4 `] c@r+  `[ `$ 6 `] cr@ = if
+      pop 1+ -
+      exit
+    then
+  next `;
+
+`: parse `( c ~ - a #)
+  text @t text# @t
+  rot scan  2dup + 1+  dup text @t -
+  text# @t swap -
+  text# !t text !t `;
+
+
+`: s, `( a # -)
+  dup `c,  swap `[ `$ 4 `] r!  dup 0<= if drop exit then
+  for `[ `$ 4 `] c@r+ `c, next `;
+`: s@ `( a - a #)
+  `[ `$ 4 `] r!  `[ `$ 4 `] c@r+  `[ `$ 4 `] r@  swap `;
+
+
+
+
+
+
+
+
+
+
+
+`: slit `( ; a1 - a2 # ; a3)
+  i@ `[ `$ 4 `] r!
+  `[ `$ 4 `] c@r+  `[ `$ 4 `] r@  swap
+  2dup + i! `;
+
+`macro: " `( ~ -) `( - a #)
+  `# 34 parse  dup 0< if drop `# 0 then  `\ slit  s, `;
+
+`macro: ." `( ~ -) `( - ~)  `\ " `\ type `;
+
+`macro: abort" `( ~ -) `( - ~ *)
+  `\ ." `\ cr `\ abort `;
+
+
+
+
+`: (word) `( ~ - a #)
+  text @t text# @t  trim  text# !t text !t
+  `$ 20 parse `;
+`: word `( ~ - a # | ~ *)
+  (word)  dup 0<= if 2drop  abort"  ?" then `;
+
+
+
+
+
+
+
+
+
+
+
+`: -digit `( c - n)
+  `# 48 -  dup `# 9 > if `# 7 -  dup `# 10 <  or then `;
+
+`: number `( a # - a # n | ~ *)
+  dup 0<= if 2drop abort"  ?" then
+  2dup  swap `[ `$ 6 `] r!
+  `[ `$ 6 `] c@r `# 45 =  push
+  `[ `$ 6 `] r@ i@ -  `[ `$ 6 `] r!
+  i@ +  `# 0  swap for
+    base@ *  `[ `$ 6 `] c@r+ -digit
+    dup base@ u>= if
+      2drop  pop drop  type abort"  ?"
+    then  +
+  next
+  pop if negate then `;
+
+`: (#) `( u ~ - | ~ *) `( - n)
+  base!  word number `\ lit  2drop `;
+`macro: # `( ~ - | ~ *) `( - n)  `# 10 (#) `;
+`macro: $ `( ~ - | ~ *) `( - n)  `# 16 (#) `;
+`macro: % `( ~ - | ~ *) `( - n)  `# 2 (#) `;
+`macro: & `( ~ - | ~ *) `( - n)  `# 8 (#) `;
+
+`macro: char `( ~ - | ~ *) `( - c)
+  text# @t 0<= if abort"  ?" then
+  text @t c@ `\ clit
+  text @t 1+ text !t
+  text# @t 1- text# !t `;
+
+`macro: ( `( ~ -) `( -)  `# 41 parse 2drop `;
+
+
+`: same `( a # a # - ?)
+  push  `[ `$ 4 `] r!  swap `[ `$ 6 `] r!
+  i@ =  dup -if pop drop exit then
+  pop for
+    `[ `$ 4 `] c@r+ `[ `$ 6 `] c@r+ =  and
+    dup i@ and i!
+  next `;
+
+
+
+
+
+
+
+
+
+`macro: >data `( h - a)  `# 2 `\ clit `\ cells- `;
+`macro: >code `( h - a)  `# 1 `\ clit `\ cells- `;
+`macro: >link `( h - a)  `;
+`macro: >name `( h - a)  `# 1 `\ clit `\ cells+ `;
+
+`macro: >body `( h - a)  `\ >data `\ @ `;
+
+
+
+
+
+
+
+
+
+
+`: find `( a # - a # h | a # 0)
+  last @t push
+  begin i@ 0= -while
+    2dup  i@ >name s@  same if pop exit then
+    i@ >link @ i!
+  repeat pop `;
+
+
+
+
+
+
+
+
+
+
+`: compile `( ~ - * | ~ *)
+  begin (word)  dup 0> while
+    find  dup if
+      nip nip  dup >code @ push ex
+    else
+      drop  type abort"  ?"
+    then
+  repeat 2drop `;
+
+
+
+
+
+
+
+
+`macro: [ `( -)
+  here@ here' !t  eval-buff here! `;
+`macro: ] `( - *) `( *)
+  `\ exit  here' @t here!  eval-buff push `;
+`macro: | `( - *) `( *)  `\ ] `\ [ `;
+
+`: evaluate `( a # ~ - * | ~ *)
+  text @t push  text# @t push
+  text# !t text !t  `\ [ compile `\ ]
+  pop text# !t  pop text !t `;
+
+
+
+
+
+
+`: evaluator `( a # ~ - ~ *)
+  dup # 1 = if 2drop exit then
+  `# 128 block t!  here' @t here!
+  text# !t text !t  `\ [ compile `\ ]
+  here@ here' !t
+  ."  ok" cr `;
+
+
+
+
+
+
+
+
+
+
+`: header `( a # -)
+  `here last @t `, last !t  s,  `here here' !t `;
+`: define `( h ~ - | ~ *)
+  `here push `# 0 `,  >body `,
+  word header
+  `here pop ! `;
+
+`: [macro] `( h - *) `( *)  >body push `;
+`macro: macro: `( ~ - | ~ *) `( *)
+  `\ ]  `' [macro] define `;
+`: [micro] `( h -) `( *)  >body `\ call `;
+`macro: : `( ~ - | ~ *) `( *)
+  `\ ]  `' [micro] define `;
+`macro: ; `( ; a - ;)  `\ exit  `\ [ `;
+
+
+`: (') `( ~ - h | ~ *)
+  word find  dup if
+    nip nip
+  else
+    drop  type abort"  ?"
+  then `;
+
+`macro: ' `( ~ - | ~ *) `( - h)  (') `\ lit `;
+
+`macro: \ `( ~ - | ~ *) `( *)
+  `\ '  `\ dup `\ >code `\ @ `\ push `\ ex `;
+
+`macro: ~ `( ~ - | ~ *) `( *)  (')  >body `\ jump `;
+
+
+
+`: load `( u - *)
+  block `# 1024 evaluate `;
+`: thru `( u u - *)
+  over - 1+ for
+    dup load 1+
+  next drop `;
+
+
+
+
+
+
+
+
+
+
+`: bye `( -)
+  <? `# 1 ?c, ?>
+  begin 2dup `# 0 send 0< while repeat
+  2drop `;
+
+
+
+
+
+
+
+
+
+
+
+
+`: words `( - ~)
+  last @t push
+  begin i@ 0= -while
+    i@ >name s@ type  space
+    i@ >link @ i!
+  repeat cr  pop drop `;
+
+
+
+
+
+
+
+
+
+
+: patch ( h h -)
+  last @t push
+  begin i@ 0= -while
+    dup >code @  i@ >code @ = if
+      over >body  i@ >code !
+    then
+    i@ >link @ i!
+  repeat 2drop  pop drop ;
+
+macro: _macro ;
+: _micro ;
+
+
+
+
+
+: prune ( h -)
+  last @t push
+  begin i@ 0= -while
+    dup  i@ >link @ = if
+      # 0 i@ >link !
+      drop  pop drop exit
+    then
+    i@ >link @ i!
+  repeat drop  pop drop ;
+
+
+
+
+
+
+
+macro: `( ( ~ -) ( -)  \ ( ;
+
+macro: `macro: ( ~ - | ~ *) ( *)  \ macro: ;
+macro: `: ( ~ - | ~ *) ( *)  \ : ;
+macro: `; ( ; a - ;)  \ ; ;
+
+macro: `[ ( -)  \ [ ;
+macro: `] ( - *) ( *)  \ ] ;
+macro: `| ( - *) ( *)  \ | ;
+macro: `~ ( ~ - | ~ *) ( *)  \ ~ ;
+
+macro: `' ( ~ - | ~ *) ( - h)  \ ' ;
+macro: `\ ( ~ - | ~ *) ( *)  \ \ ;
+
+
+
+macro: `# ( ~ - | ~ *) ( - n)  \ # ;
+macro: `$ ( ~ - | ~ *) ( - n)  \ $ ;
+
+macro: `here ( - a)  \ here ;
+macro: `, ( n -)  \ , ;
+macro: `c, ( cn -)  \ c, ;
+
+: `load ( u - *)  load ;
+: `thru ( u u - *)  thru ;
+
+
+
+
+
+
+
+macro: tasks ( - a)  # 1 block \ lit ;
+: task ( n - a)  1+ cells  tasks + ;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+: wait' ( -)  # 0 wait drop ;
+: clip' ( a # -)
+  begin 2dup # 0 clip 0< while repeat
+  2drop ;
+: recv' ( - a #)
+  begin # 0 recv 0< while 2drop  wait' repeat ;
+: mark ( a # - n)
+  over # 1 cells- @  dup # -1 = if drop  over @ then ;
+
+
+
+
+
+
+
+
+: main ( - *)
+  begin
+    # 32 block dup clip'  recv'
+    mark task @  dup if
+      push ex
+    else
+      drop  2drop
+    then
+  again ;
+
+
+
+
+
+
+
+last @t here@
+
+macro: empty ( -)
+  lit \ lit \ here!
+  lit \ lit \ last \ !t ;
+
+
+
+
+
+
+
+
+
+
+
+: cfill ( a # cn -)
+  -rot  swap [ $ 4 ] r!  for
+    dup [ $ 4 ] c!r+
+  next drop ;
+
+: cmove ( a1 # a2 -)
+  [ $ 6 ] r!  swap [ $ 4 ] r!  for
+    [ $ 4 ] c@r+  [ $ 6 ] c!r+
+  next ;
+
+
+
+
+
+
+
+: execute ( h - *)  >body push ;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+: [create] ( h -) ( - a)  >body \ lit ;
+: create ( ~ - | ~ *) ( - a)  # 0 ,  ' [create] define ;
+
+macro: >does ( h - a)  # 3 \ clit \ cells- ;
+
+: [does] ( h -) ( *)
+  dup >body \ lit  >does @ \ call ;
+: does ( ; a - ;)
+  ' [does] >body  last @t >code !
+  pop  last @t >does ! ;
+
+
+
+
+
+
+macro: variable ( ~ - | ~ *) ( - a)
+  \ ]  create # 0 ,  \ [ ;
+macro: constant ( n ~ - | ~ *) ( - n)
+  \ ]  create ,  \ [  does @ ;
+
+
+
+
+
+
+
+
+
+
+
+
+: [alias] ( h - *) ( *)  >data @ dup >code @ push ;
+macro: alias ( h ~ - | ~ *) ( *)
+  \ ]  ,  ' [alias] >data @ ,  word header  \ [ ;
+
+
+
+
+
+
+
+
+
+
+
+
+
+: [defer] ( h -) ( *)  >data \ lit  \ @ \ push \ ex ;
+macro: defer: ( ~ - | ~ *) ( *)  \ ]  ' [defer] define ;
+: defer! ( h h -)  swap >data @  swap >data ! ;
+: defer@ ( h - h)  >data @ ;
+macro: is ( h ~ - | ~ *)
+  \ ]  (') defer!  \ [ ;
+
+
+
+
+
+
+
+
+
+
+: internal ( - h)  last @t ;
+: external ( - h)  last @t ;
+: module ( h h - | ~ *)
+  last @t push
+  begin i@ 0= -while
+    dup  i@ >link @ = if
+      drop  pop >link !
+      exit
+    then
+    i@ >link @ i!
+  repeat
+  2drop  pop drop  abort"  ?" ;
+
+
+
+
+: z.h ( cu - ~)
+  # 16 base!  <?# $ 20 hold  ?# ?# #?> type ;
+
+: dump ( a # - ~)
+  swap [ $ A ] r!  for
+    [ $ A ] c@r+ z.h
+  next cr ;
+
+: more ( - a)  [ $ A ] r@ ;
+
+
+
+
+
+
+

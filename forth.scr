@@ -80,7 +80,7 @@
 
 # 55 forth/ # 56 forth/ ~ thru |
 
-# 194 block # 62 block # 0 cfill
+# 194 block # 30 block # 0 cfill
 # 194 block here!
 # 2 forth/ ~ load |
 
@@ -96,7 +96,7 @@ empty
 
 # 55 forth/ # 56 forth/ ~ thru  |
 
-# 2 block # 62 block # 0 cfill
+# 2 block # 30 block # 0 cfill
 # 2 block here!
 # 2 forth/ ~ load |
 

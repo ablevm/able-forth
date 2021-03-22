@@ -25,30 +25,7 @@ $
 
 Bootstrapping
 
-$ img -t forth.img 1M
-$ scr -r forth.scr | img -w forth.img 256B 128B
-$ able forth.img
-( Rebuild and install main)
- ok
-: forth/  # 256 + ;
- ok
-# 5 forth/ ~ load
- ok
-# 6 forth/ ~ load
- ok
-( Rebuild and install Able Forth)
- ok
-: forth/  # 256 + ;
- ok
-# 3 forth/ ~ load
- ok
-: forth/  # 256 + ;
- ok
-# 4 forth/ ~ load
- ok
-bye
-$ img -t forth.img 192B
-$ 
+See build.sh for an example of how to bootstrap Able Forth
 
 GETTING INVOLVED
 

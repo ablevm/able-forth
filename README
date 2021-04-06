@@ -28,19 +28,26 @@ Bootstrapping
 $ img -t forth.img 1M
 $ scr -r forth.scr | img -w forth.img 256B 128B
 $ able forth.img
-( recompile Able Forth)
+( Rebuild and install main)
  ok
-# 259 ~ load
+: forth/  # 256 + ;
  ok
-# 260 ~ load
+# 5 forth/ ~ load
  ok
-( recompile Able main)
+# 6 forth/ ~ load
  ok
-# 261 ~ load
+( Rebuild and install Able Forth)
  ok
-# 262 ~ load
+: forth/  # 256 + ;
+ ok
+# 3 forth/ ~ load
+ ok
+: forth/  # 256 + ;
+ ok
+# 4 forth/ ~ load
  ok
 bye
+$ img -t forth.img 192B
 $ 
 
 GETTING INVOLVED
@@ -61,7 +68,7 @@ DETAILS
 
 Memory Map
 
-   0-64  Able main
+   0-64   main
 
      0-1    boot
      1-2    tasks

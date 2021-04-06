@@ -1,4 +1,4 @@
-# 311 # 319 ~ thru
+# 55 forth/ # 63 forth/ ~ thru
 
 
 
@@ -14,7 +14,7 @@
 
 
 
-`# 263 `# 303 `~ `thru
+`# 7 `forth/ `# 47 `forth/ `~ `thru
 
 
 
@@ -30,7 +30,7 @@
 
 
 
-# 308 # 310 ~ thru
+# 52 forth/ # 54 forth/ ~ thru
 
 
 
@@ -46,43 +46,43 @@
 
 
 
-# 312 ~ load |
-# 304 # 305 ~ thru |
-# 308 ~ load |
-# 306 # 307 ~ thru |
+# 56 forth/ ~ load |
+# 48 forth/ # 49 forth/ ~ thru |
+# 52 forth/ ~ load |
+# 50 forth/ # 51 forth/ ~ thru |
 
 # 196 block # 60 block # 0 cfill
 # 196 block here!
 # 0 ' patch >link !
-# 257 ~ load |
+# 1 `forth/ ~ load |
 
 ' [macro] ' _macro patch
 ' [micro] ' _micro patch
 ' evaluator >body # 1 task !
-' `thru prune
+' `forth/ prune
 
 
-# 312 ~ load |
-# 304 # 305 ~ thru |
-# 308 ~ load |
-# 306 # 307 ~ thru |
+# 56 forth/ ~ load |
+# 48 forth/ # 49 forth/ ~ thru |
+# 52 forth/ ~ load |
+# 50 forth/ # 51 forth/ ~ thru |
 
 # 132 block # 60 block # 0 cfill
 # 132 block here!
 # 0 ' patch >link !
-# 257 ~ load |
+# 1 `forth/ ~ load |
 
 ' [macro] ' _macro patch
 ' [micro] ' _micro patch
 ' evaluator >body # 1 task !
-' `thru prune
+' `forth/ prune
 
 
-# 311 # 312 ~ thru |
+# 55 forth/ # 56 forth/ ~ thru |
 
 # 194 block # 62 block # 0 cfill
 # 194 block here!
-# 258 ~ load |
+# 2 forth/ ~ load |
 
 # 0 block # 1 block # 0 cfill
 # 0 block here!
@@ -94,11 +94,11 @@ empty
 
 
 
-# 311 # 312 ~ thru  |
+# 55 forth/ # 56 forth/ ~ thru  |
 
 # 2 block # 62 block # 0 cfill
 # 2 block here!
-# 258 ~ load |
+# 2 forth/ ~ load |
 
 # 0 block # 1 block # 0 cfill
 # 0 block here!
@@ -824,7 +824,7 @@ macro: `c, ( cn -)  \ c, ;
 : `load ( u - *)  load ;
 : `thru ( u u - *)  thru ;
 
-
+: `forth/ ( u - u)  forth/ ;
 
 
 

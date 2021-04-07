@@ -343,8 +343,8 @@ empty
 
 `macro: allot `( # -)  `$ 2 `\ r@ `\ +  `$ 2 `\ r! `;
 
-`: naligned `( u u - u)  1-  dup not  -rot +  and `;
-`: aligned `( u - u)  `# 4 naligned `;
+`: naligned `( u1 u2 - u3)  1-  dup not  -rot +  and `;
+`: aligned `( u1 - u2)  `# 4 naligned `;
 `: align `( -)  here@ aligned here! `;
 
 
@@ -451,7 +451,7 @@ empty
 `: <?# `( -)  send-buff `[ `$ 6 `] r! `;
 `: #?> `( - a #)  drop  `[ `$ 6 `] r@  send-buff over - `;
 `: hold `( c -)  `[ `$ 6 `] -c!r `;
-`: ?# `( u - u)  base@ u/mod  swap digit hold `;
+`: ?# `( u1 - u2)  base@ u/mod  swap digit hold `;
 `: ?#s `( u - 0)  begin ?#  dup 0= -while repeat `;
 `: sign `( n -)  0< if `$ 2D hold then `;
 
@@ -469,7 +469,7 @@ empty
 `: .b `( n - ~)  `# 2 (.) `;
 `: .o `( n - ~)  `# 8 (.) `;
 
-`: (u.) `( u u - ~)
+`: (u.) `( u1 u2 - ~)
   base!  <?# `$ 20 hold  ?#s #?> type `;
 `: u. `( u - ~)  `# 10 (u.) `;
 `: u.x `( u - ~)  `# 16 (u.) `;
@@ -478,7 +478,7 @@ empty
 
 
 
-`: trim `( a # - a #)
+`: trim `( a1 #1 - a2 #2)
   dup 0<= if exit then
   swap `[ `$ 4 `] r!  for
     `[ `$ 4 `] c@r+ `# 33 < -if
@@ -494,7 +494,7 @@ empty
 
 
 
-`: scan `( a # c - a #)
+`: scan `( a1 #1 c - a2 #2)
   `[ `$ 6 `] cr!  dup 0<= if exit then
   over `[ `$ 4 `] r!  dup for
     `[ `$ 4 `] c@r+  `[ `$ 6 `] cr@ = if
@@ -513,7 +513,7 @@ empty
 `: s, `( a # -)
   dup `c,  swap `[ `$ 4 `] r!  dup 0<= if drop exit then
   for `[ `$ 4 `] c@r+ `c, next `;
-`: s@ `( a - a #)
+`: s@ `( a1 - a2 #)
   `[ `$ 4 `] r!  `[ `$ 4 `] c@r+  `[ `$ 4 `] r@  swap `;
 
 
@@ -590,7 +590,7 @@ empty
 `macro: ( `( ~ -) `( -)  `# 41 parse 2drop `;
 
 
-`: same `( a # a # - ?)
+`: same `( a1 #1 a2 #2 - ?)
   push  `[ `$ 4 `] r!  swap `[ `$ 6 `] r!
   i@ =  dup -if pop drop exit then
   pop for
@@ -720,7 +720,7 @@ empty
 
 `: load `( u - *)
   block `# 1024 evaluate `;
-`: thru `( u u - *)
+`: thru `( u1 u2 - *)
   over - 1+ for
     dup load 1+
   next drop `;
@@ -766,7 +766,7 @@ empty
 
 
 
-: patch ( h h -)
+: patch ( h1 h2 -)
   last @t push
   begin i@ 0= -while
     dup >code @  i@ >code @ = if
@@ -822,9 +822,9 @@ macro: `, ( n -)  \ , ;
 macro: `c, ( cn -)  \ c, ;
 
 : `load ( u - *)  load ;
-: `thru ( u u - *)  thru ;
+: `thru ( u1 u2 - *)  thru ;
 
-: `forth/ ( u - u)  forth/ ;
+: `forth/ ( u1 - u2)  forth/ ;
 
 
 
@@ -976,8 +976,8 @@ macro: alias ( h ~ - | ~ *) ( *)
 
 : [defer] ( h -) ( *)  >data \ lit  \ @ \ push \ ex ;
 macro: defer: ( ~ - | ~ *) ( *)  \ ]  ' [defer] define ;
-: defer! ( h h -)  swap >data @  swap >data ! ;
-: defer@ ( h - h)  >data @ ;
+: defer! ( h1 h2 -)  swap >data @  swap >data ! ;
+: defer@ ( h1 - h2)  >data @ ;
 macro: is ( h ~ - | ~ *)
   \ ]  (') defer!  \ [ ;
 
@@ -992,7 +992,7 @@ macro: is ( h ~ - | ~ *)
 
 : internal ( - h)  last @t ;
 : external ( - h)  last @t ;
-: module ( h h - | ~ *)
+: module ( h1 h2 - | ~ *)
   last @t push
   begin i@ 0= -while
     dup  i@ >link @ = if

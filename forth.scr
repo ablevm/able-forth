@@ -926,60 +926,12 @@ macro: empty ( -)
 
 
 
-: [create] ( h -) ( - a)  >body \ lit ;
-: create ( ~ - | ~ *) ( - a)  # 0 ,  ' [create] define ;
-
-macro: >does ( h - a)  # 3 \ clit \ cells- ;
-
-: [does] ( h -) ( *)
-  dup >body \ lit  >does @ \ call ;
-: does ( ; a - ;)
-  ' [does] >body  last @t >code !
-  pop  last @t >does ! ;
-
-
-
-
-
-
-macro: variable ( ~ - | ~ *) ( - a)
-  \ ]  create # 0 ,  \ [ ;
-macro: constant ( n ~ - | ~ *) ( - n)
-  \ ]  create ,  \ [  does @ ;
-
-
-
-
-
-
-
-
-
-
-
-
-: [alias] ( h - *) ( *)  >data @ dup >code @ push ;
 macro: alias ( h ~ - | ~ *) ( *)
-  \ ]  ,  ' [alias] >data @ ,  word header  \ [ ;
+  \ ]  dup >data @ ,  >code @ ,  word header  \ [ ;
 
 
 
 
-
-
-
-
-
-
-
-
-
-: [defer] ( h -) ( *)  >data \ lit  \ @ \ push \ ex ;
-macro: defer: ( ~ - | ~ *) ( *)  \ ]  ' [defer] define ;
-: defer! ( h1 h2 -)  swap >data @  swap >data ! ;
-: defer@ ( h1 - h2)  >data @ ;
-macro: is ( h ~ - | ~ *)
-  \ ]  (') defer!  \ [ ;
 
 
 
@@ -991,17 +943,65 @@ macro: is ( h ~ - | ~ *)
 
 
 : internal ( - h)  last @t ;
-: external ( - h)  last @t ;
-: module ( h1 h2 - | ~ *)
-  last @t push
-  begin i@ 0= -while
-    dup  i@ >link @ = if
-      drop  pop >link !
-      exit
-    then
-    i@ >link @ i!
-  repeat
-  2drop  pop drop  abort"  ?" ;
+: external ( - h)  here aligned # 2 cells+ ;
+: module ( h1 h2 -)  >link ! ;
+
+
+
+
+
+
+
+
+
+
+
+
+
+: rest ( ; a - a ;)  pop ;
+: create ( ~ - | ~ *) ( - a)  ' [micro] define \ rest ;
+: use ( a -)  last @t >body 1+ ! ;
+: does ( ; a - ;) ( ; a - *)  pop use ;
+
+: >rest ( h - a)  >body 1+ # 1 cells+ ;
+
+
+
+
+
+
+
+
+
+
+macro: variable ( ~ - | ~ *) ( - a)
+  \ ]  create # 0 ,  \ [ ;
+
+macro: constant ( n ~ - | ~ *) ( - n)
+  \ ]  create ,  \ [  does pop @ ;
+
+
+
+
+
+
+
+
+
+
+
+macro: defer ( ~ - | ~ *) ( *)
+  \ ]  create # 0 ,  \ [  does pop @ push ;
+: defer! ( a h -)  >rest ! ;
+: defer@ ( h - a)  >rest @ ;
+macro: is ( ~ - | ~ *) ( h -)  \ >body  \ ' \ defer! ;
+
+
+
+
+
+
+
 
 
 

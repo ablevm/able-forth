@@ -294,7 +294,7 @@ empty
 `macro: reset `( - *)  `$ 85 `c, `;
 `macro: depth `( - u1 u2)  `$ 86 `c, `;
 
-`macro: debug `( - ~)  `$ FE `c, `;
+
 
 
 

@@ -307,7 +307,7 @@ empty
 `macro: jump `( a -) `( *)  `$ 02 `c, `, `;
 `macro: call `( a -) `( *)  `$ 03 `c, `, `;
 
-`macro: abort `( -) `( *)  `$ 0 `\ jump `;
+`: abort `( - *)  reset `;
 
 
 
@@ -991,7 +991,7 @@ macro: constant ( n ~ - | ~ *) ( - n)
 
 
 macro: defer ( ~ - | ~ *) ( *)
-  \ ]  create # 0 ,  \ [  does pop @ push ;
+  \ ]  create ' abort >body ,  \ [  does pop @ push ;
 : defer! ( a h -)  >rest ! ;
 : defer@ ( h - a)  >rest @ ;
 macro: is ( ~ - | ~ *) ( h -)  \ >body  \ ' \ defer! ;

@@ -291,10 +291,10 @@ empty
 `macro: recv `( p - a # n)  `$ 82 `c, `;
 `macro: send `( a # l - n)  `$ 83 `c, `;
 
+`macro: reset `( - *)  `$ 85 `c, `;
+`macro: depth `( - u1 u2)  `$ 86 `c, `;
+
 `macro: debug `( - ~)  `$ FE `c, `;
-
-
-
 
 
 

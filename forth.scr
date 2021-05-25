@@ -855,15 +855,15 @@ macro: tasks ( - a)  # 1 block \ lit ;
 : mark ( a # - n)
   over # 1 cells- @  dup # -1 = if drop  over @ then ;
 
-
-
-
-
+: ?trap ( a n - | ~ *)
+  dup # 2 < if 2drop exit then
+  ." ERROR " . u.x cr
+  reset ;
 
 
 
 : main ( a n - *)
-  2drop
+  ?trap
   begin
     # 32 block dup clip'  recv'
     mark task @  dup if

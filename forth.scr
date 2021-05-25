@@ -862,7 +862,8 @@ macro: tasks ( - a)  # 1 block \ lit ;
 
 
 
-: main ( - *)
+: main ( a n - *)
+  2drop
   begin
     # 32 block dup clip'  recv'
     mark task @  dup if
@@ -871,7 +872,6 @@ macro: tasks ( - a)  # 1 block \ lit ;
       drop  2drop
     then
   again ;
-
 
 
 

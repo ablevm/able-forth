@@ -291,7 +291,7 @@ empty
 `macro: recv `( p - a # n)  `$ 82 `c, `;
 `macro: send `( a # l - n)  `$ 83 `c, `;
 
-`macro: debug `( - ~)  `$ 85 `c, `;
+`macro: debug `( - ~)  `$ FE `c, `;
 
 
 

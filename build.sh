@@ -1,7 +1,7 @@
 #!/bin/sh
 
-img -t forth.img 1M
-scr -r forth.scr | img -w forth.img 256B 128B
+img -r 1M forth.img
+scr -r forth.scr | img -s 256B -i 128B forth.img
 able forth.img <<EOF
 ( Rebuild and install main)
 : forth/  # 256 + ;
@@ -16,4 +16,4 @@ abort
 # 4 forth/ ~ load
 bye
 EOF
-img -t forth.img 192B
+img -r 192B forth.img

@@ -50,6 +50,6 @@ cd ..
 cd ..
 rm -rf build
 
-img -t forth.img 1M
-scr -r forth.scr | img -w forth.img 256B 128B
+img -r 1M forth.img
+scr -r forth.scr | img -s 256B -i 128B forth.img
 echo '." SUCCESS" cr bye' | able forth.img | grep SUCCESS

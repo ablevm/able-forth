@@ -2,7 +2,7 @@
 
 img -r 1M forth.img
 scr -r forth.scr | img -s 256B -i 128B forth.img
-able forth.img <<EOF
+able forth.img <<EOF | grep -v "^ ok"
 ( Rebuild and install main)
 : forth/  # 256 + ;
 # 5 forth/ ~ load

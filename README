@@ -1,6 +1,10 @@
-WELCOME TO ABLE!
+able-forth
 
 able-forth implements a Forth-like programming language that targets the AbleVM
+
+REQUIREMENTS
+
+able
 
 GETTING STARTED
 

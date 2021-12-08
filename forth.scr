@@ -606,10 +606,10 @@ empty
 
 
 
-`macro: >data `( h - a)  `# 2 `\ clit `\ cells- `;
-`macro: >code `( h - a)  `# 1 `\ clit `\ cells- `;
+`macro: >data `( h - a)  `# 2 cells `\ clit `\ - `;
+`macro: >code `( h - a)  `# 1 cells `\ clit `\ - `;
 `macro: >link `( h - a)  `;
-`macro: >name `( h - a)  `# 1 `\ clit `\ cells+ `;
+`macro: >name `( h - a)  `# 1 cells `\ clit `\ + `;
 
 `macro: >body `( h - a)  `\ >data `\ @ `;
 

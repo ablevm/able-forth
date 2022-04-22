@@ -286,7 +286,7 @@ empty
 
 
 
-`macro: wait `( p - n)  `$ 80 `c, `;
+`macro: wait `( t p - n)  `$ 80 `c, `;
 `macro: clip `( a # p - n)  `$ 81 `c, `;
 `macro: recv `( p - a # n)  `$ 82 `c, `;
 `macro: send `( a # l - n)  `$ 83 `c, `;
@@ -846,7 +846,7 @@ macro: tasks ( - a)  # 1 block \ lit ;
 
 
 
-: wait' ( -)  # 0 wait drop ;
+: wait' ( -)  # -1 # 0 wait drop ;
 : clip' ( a # -)
   begin 2dup # 0 clip 0< while repeat
   2drop ;

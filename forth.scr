@@ -86,7 +86,7 @@
 
 # 0 block # 1 block # 0 cfill
 # 0 block here!
-' main >body \ jump
+' ?trap >body \ call  ' main >body \ jump
 empty
 
 
@@ -102,7 +102,7 @@ empty
 
 # 0 block # 1 block # 0 cfill
 # 0 block here!
-' main >body \ jump
+' ?trap >body \ call  ' main >body \ jump
 empty
 
 
@@ -862,8 +862,7 @@ macro: tasks ( - a)  # 1 block \ lit ;
 
 
 
-: main ( a n - *)
-  ?trap
+: main ( - *)
   begin
     # 32 block dup clip'  recv'
     mark task @  dup if
@@ -872,6 +871,7 @@ macro: tasks ( - a)  # 1 block \ lit ;
       drop  2drop
     then
   again ;
+
 
 
 

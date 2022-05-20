@@ -31,6 +31,11 @@ bmake
 sudo bmake install
 cd ..
 
+cd libable/misc
+cp config.mk.def config.mk
+sudo bmake install
+cd ../..
+
 cd able
 cp config.mk.def config.mk
 bmake

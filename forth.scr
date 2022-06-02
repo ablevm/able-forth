@@ -775,8 +775,8 @@ empty
     i@ >link @ i!
   repeat 2drop  pop drop ;
 
-macro: _macro ;
-: _micro ;
+macro: _macro ( -) ( -)  ;
+: _micro ( -)  ;
 
 
 
